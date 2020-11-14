@@ -5,7 +5,7 @@
 //!
 //! [actix]: https://actix.rs/docs/
 
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+use actix_web::{get, post, web, App, HttpRequest, HttpResponse, HttpServer, Responder};
 use std::env;
 
 fn greet(req: &HttpRequest) -> impl Responder {
