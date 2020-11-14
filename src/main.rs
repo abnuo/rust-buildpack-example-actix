@@ -5,12 +5,17 @@
 //!
 //! [actix]: https://actix.rs/docs/
 
-use actix_web::{server, App, HttpRequest, Responder};
+use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 use std::env;
 
 fn greet(req: &HttpRequest) -> impl Responder {
     let to = req.match_info().get("name").unwrap_or("World");
     format!("Hello {}!", to)
+}
+
+#[get("/poop")]
+async fn hello() -> impl Responder {
+    HttpResponse::Ok().body("Hello poop!")
 }
 
 fn main() {
